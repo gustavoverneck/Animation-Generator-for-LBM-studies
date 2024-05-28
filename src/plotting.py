@@ -100,5 +100,5 @@ def createAni(data, args):
         init_1D(data, args)
         anim = FuncAnimation(fig, animate_1D, fargs=(data, args, progress_bar), frames=args.nt, interval=20)
         saveAni(anim, args)
-    
+    progress_bar.close()
     return
