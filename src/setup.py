@@ -55,7 +55,7 @@ def getArguments():
     parser.add_argument("--ysup", type=float, help="y upper bound.")
     parser.add_argument("--xlabel", type=str, help="x label.", default=" ")
     parser.add_argument("--ylabel", type=str, help="y label.", default=' ')
-    parser.add_argument("--title", type=str, help="Title.", default="Temperature Distribution")
+    parser.add_argument("--title", type=str, help="Title.", default=" ")
     parser.add_argument("--dim", type=int, help="Dimension of the problem (1 or 2).")
 
     # Read Arguments
