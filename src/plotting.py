@@ -62,9 +62,8 @@ def animate_vector2D(i, data, args, progress_bar):
     vy = np.array(data[i][4])
     plt.scatter(x, y, c=T, cmap='rainbow')
     plt.colorbar()
-    plt.quiver(x, y, vx, vy, angles='xy', scale_units='xy', scale=0.1)
+    #plt.quiver(x, y, vx, vy)
     plt.title(args.title)
-    plt.gca().set_aspect('equal')
     progress_bar.update(1)
     return
 
@@ -99,17 +98,19 @@ def init_vector2D(data, args):
     T = np.array(data[0][4])
     plt.scatter(x, y, c=T, cmap='rainbow')
     plt.colorbar()
-    plt.quiver(x, y, vx, vy, angles='xy', scale_units='xy', scale=0.1)
+    plt.quiver(x, y, vx, vy)
     plt.title(args.title)
     return args
 
 def saveAni(anim, args):
     output = args.output
     anim.save(f"output/{output}",  
-          writer = 'ffmpeg', fps = 30, dpi=600)
+          writer = 'ffmpeg', fps = 30, dpi=300)
     print(f"Animation saved in /output/{output}!")
     # Open folder
     open_directory_in_file_explorer(f"output")
+    
+    
     return
 
 def createAni(data, args):
