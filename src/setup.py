@@ -58,9 +58,9 @@ def readInput(input_filename, dim, **kwargs):
                 for line in output:
                     data[l][0].append(float(line.split()[0]))   # x
                     data[l][1].append(float(line.split()[1]))   # y
-                    data[l][2].append(float(line.split()[3]))   # T
-                    data[l][3].append(float(line.split()[4]))   # vx
-                    data[l][4].append(float(line.split()[5]))   # vy
+                    data[l][2].append(float(line.split()[2]))   # T
+                    data[l][3].append(float(line.split()[3]))   # vx
+                    data[l][4].append(float(line.split()[4]))   # vy
                     data.append([[],[],[],[],[]])
                     if float(line.split()[0])==xsup and float(line.split()[1])==ysup:
                         l += 1
@@ -83,7 +83,7 @@ def getArguments():
     parser.add_argument("--ylabel", type=str, help="y label.", default=' ')
     parser.add_argument("--title", type=str, help="Title.", default=" ")
     parser.add_argument("--dim", type=int, help="Dimension of the problem (1 or 2).")
-    parser.add_argument("--type", type=str, help="Plot type.", default="heatmap")
+    parser.add_argument("--type", type=str, help="Plot type (heatmap or vectorfield).")
     # Read Arguments
     args = parser.parse_args()
     return args

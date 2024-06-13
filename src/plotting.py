@@ -60,7 +60,7 @@ def animate_vector2D(i, data, args, progress_bar):
     T = np.array(data[i][2])
     vx = np.array(data[i][3])
     vy = np.array(data[i][4])
-    plt.quiver(x, y, vx, vy, T, cmap='jet')
+    plt.quiver(x, y, vx, vy, T, cmap='jet', width=0.01, linewidth=1)
     plt.title(args.title)
     plt.colorbar()
     progress_bar.update(1)
@@ -92,10 +92,10 @@ def init_1D(data, args):
 def init_vector2D(data, args):
     x = np.array(data[0][0])
     y = np.array(data[0][1])
-    T = np.array(data[0][2])
-    vx = np.array(data[0][3])
-    vy = np.array(data[0][4])
-    plt.quiver(x, y, vx, vy, T, cmap='jet')
+    vx = np.array(data[0][2])
+    vy = np.array(data[0][3])
+    T = np.array(data[0][4])
+    plt.quiver(x, y, vx, vy, T, cmap='jet', width=0.01, linewidth=1)
     plt.title(args.title)
     plt.colorbar()
     return args
@@ -127,11 +127,11 @@ def createAni(data, args):
             anim = FuncAnimation(fig, animate_1D, fargs=(data, args, progress_bar), frames=args.nt, interval=20)
             saveAni(anim, args)
         progress_bar.close()
-    elif args.type == 'vectormap':
+    elif args.type == 'vectorfield':
         # For dimension=2
         if args.dim == 2:
             init_vector2D(data, args)
-            anim = FuncAnimation(fig, animate_vector2D, fargs=(data, args, progress_bar), frames=args.nt, interval=20)
+            anim = FuncAnimation(fig, animate_vector2D, fargs=(data, args, progress_bar), frames=args.nt, interval=0.01)
             saveAni(anim, args)
         progress_bar.close()
     return
