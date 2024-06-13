@@ -1,4 +1,5 @@
-# Surface-Heat-Map-Animation-Generator
+# Animation Generator for LBM studies
+
 Surface Heat Map Animation Generator using python
 
 The data format is:
