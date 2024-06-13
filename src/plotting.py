@@ -60,9 +60,11 @@ def animate_vector2D(i, data, args, progress_bar):
     T = np.array(data[i][2])
     vx = np.array(data[i][3])
     vy = np.array(data[i][4])
-    plt.quiver(x, y, vx, vy, T, cmap='jet', width=0.01, linewidth=1)
-    plt.title(args.title)
+    plt.scatter(x, y, c=T, cmap='rainbow')
     plt.colorbar()
+    plt.quiver(x, y, vx, vy, angles='xy', scale_units='xy', scale=0.1)
+    plt.title(args.title)
+    plt.gca().set_aspect('equal')
     progress_bar.update(1)
     return
 
@@ -95,9 +97,10 @@ def init_vector2D(data, args):
     vx = np.array(data[0][2])
     vy = np.array(data[0][3])
     T = np.array(data[0][4])
-    plt.quiver(x, y, vx, vy, T, cmap='jet', width=0.01, linewidth=1)
-    plt.title(args.title)
+    plt.scatter(x, y, c=T, cmap='rainbow')
     plt.colorbar()
+    plt.quiver(x, y, vx, vy, angles='xy', scale_units='xy', scale=0.1)
+    plt.title(args.title)
     return args
 
 def saveAni(anim, args):
