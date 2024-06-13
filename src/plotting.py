@@ -106,12 +106,10 @@ def init_vector2D(data, args):
 def saveAni(anim, args):
     output = args.output
     anim.save(f"output/{output}",  
-          writer = 'ffmpeg', fps = 30)
+          writer = 'ffmpeg', fps = 30, dpi=600)
     print(f"Animation saved in /output/{output}!")
     # Open folder
     open_directory_in_file_explorer(f"output")
-    
-    
     return
 
 def createAni(data, args):
